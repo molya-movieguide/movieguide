@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Басты бет — Movie Guide{% endblock %}
+
+{% block content %}
+  <h1>Танымал фильмдер</h1>
+  <section>
+    {% for movie in movies %}
+      <article>
+        {% if movie.poster %}
+          <img src="{{ movie.poster.url }}" alt="{{ movie.title }}" width="150">
+        {% endif %}
+        <h2>{{ movie.title }}</h2>
+        <p>{{ movie.year }} · ⭐ {{ movie.rating }}</p>
+      </article>
+    {% empty %}
+      <p>Әзірге фильмдер жоқ.</p>
+    {% endfor %}
+  </section>
+{% endblock %}
